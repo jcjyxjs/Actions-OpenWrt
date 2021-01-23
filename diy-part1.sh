@@ -19,6 +19,6 @@ sed -i '$a src-git project https://github.com/project-openwrt/packages' feeds.co
 rm -rf ./package/lean/luci-theme-argon && git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon  #新的argon主题
 
 # 增加 SSID 2.5G
-sed -i '/channel="11"/a\\t\tssid="BJYS20196688"' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i '/channel="11"/a\\t\tssid="OpenWrt-2G"' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 # 增加 SSID 5.0G
-sed -i '/channel="36"/a\\t\t\tssid="BJYS20196688-5HZ"' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i '/channel="36"/a\\t\t\tssid="OpenWrt-5G"' package/kernel/mac80211/files/lib/wifi/mac80211.sh
