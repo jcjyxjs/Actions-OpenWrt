@@ -15,17 +15,17 @@ sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_genera
 sed -i 's/OpenWrt/XiaoMi_R3G/g' package/base-files/files/bin/config_generate
 
 # 设置时区
-sed -i 's/UTC/CST-8/g' package/base-files/files/bin/config_generate
+# sed -i 's/UTC/CST-8/g' package/base-files/files/bin/config_generate
 
 # 增加IPV6
-sed -i '/exit 0/i\# 增加IPV6\nuci set network.globals.ula_prefix="ddaa:6666:8888::/48"\nuci commit network' package/lean/default-settings/files/zzz-default-settings
-curl -fsSL https://raw.githubusercontent.com/danxiaonuo/AutoBuild-OpenWrt/master/99-ipv6 > package/base-files/files/etc/hotplug.d/99-ipv6
-sed -i '/exit 0/i\mv /etc/hotplug.d/99-ipv6 /etc/hotplug.d/iface/99-ipv6' package/lean/default-settings/files/zzz-default-settings
-sed -i '/99-ipv6/a\chmod u+x /etc/hotplug.d/iface/99-ipv6' package/lean/default-settings/files/zzz-default-settings
-sed -i '/exit 0/i\sed -i "s/option ip6assign ".*"/option ip6assign "64"/g" /etc/config/network' package/lean/default-settings/files/zzz-default-settings
+# sed -i '/exit 0/i\# 增加IPV6\nuci set network.globals.ula_prefix="ddaa:6666:8888::/48"\nuci commit network' package/lean/default-settings/files/zzz-default-settings
+# curl -fsSL https://raw.githubusercontent.com/danxiaonuo/AutoBuild-OpenWrt/master/99-ipv6 > package/base-files/files/etc/hotplug.d/99-ipv6
+# sed -i '/exit 0/i\mv /etc/hotplug.d/99-ipv6 /etc/hotplug.d/iface/99-ipv6' package/lean/default-settings/files/zzz-default-settings
+# sed -i '/99-ipv6/a\chmod u+x /etc/hotplug.d/iface/99-ipv6' package/lean/default-settings/files/zzz-default-settings
+# sed -i '/exit 0/i\sed -i "s/option ip6assign ".*"/option ip6assign "64"/g" /etc/config/network' package/lean/default-settings/files/zzz-default-settings
 
 # 增加IPV6防火墙
-sed -i '/uci commit network/a\# IPV6防火墙\necho "ip6tables -t nat -I POSTROUTING -s $(uci get network.globals.ula_prefix) -j MASQUERADE" >> /etc/firewall.user' package/lean/default-settings/files/zzz-default-settings
+# sed -i '/uci commit network/a\# IPV6防火墙\necho "ip6tables -t nat -I POSTROUTING -s $(uci get network.globals.ula_prefix) -j MASQUERADE" >> /etc/firewall.user' package/lean/default-settings/files/zzz-default-settings
 
 # disable usb3.0
 git clone https://github.com/rufengsuixing/luci-app-usb3disable.git package/mine/luci-app-usb3disable
