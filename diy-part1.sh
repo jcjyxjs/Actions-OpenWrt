@@ -9,7 +9,13 @@
 #=============================================================
 
 # Uncomment a feed source
-#sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
+# sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-#sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+# sed -i '$a src-git openwrt https://github.com/openwrt/packages.git' feeds.conf.default
+# sed -i '$a src-git diy https://github.com/281677160/openwrt-package' feeds.conf.default
+# sed -i '$a src-git project https://github.com/project-openwrt/packages' feeds.conf.default
+sed -i '$a src-git openwrt https://github.com/openwrt/luci' feeds.conf.default
+
+rm -rf ./package/lean/luci-theme-argon && git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/lean/luci-theme-argon  #新的argon主题
